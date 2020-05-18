@@ -1,0 +1,24 @@
+{
+  "name": "face-detection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "face-api.min.js",
+  "dependencies": {
+    "face-api.js": "^0.22.2",
+    "http-server": "^0.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nightwarriorftw/face-detection-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nightwarriorftw/face-detection-js/issues"
+  },
+  "homepage": "https://github.com/nightwarriorftw/face-detection-js#readme"
+}
