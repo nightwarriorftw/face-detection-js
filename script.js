@@ -16,7 +16,7 @@ async function start() {
 
   // calling the 
   const labeledFaceDescriptors = await loadLabeledImages();
-  const faceMatcher = new faceapi.faceMatcher(labeledFaceDescriptors,
+  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors,
     0.6);
 
   imageUpload.addEventListener('change', async () => {
@@ -46,6 +46,7 @@ async function start() {
       const drawBox = new faceapi.draw.DrawBox(box, {
         label: results.toString()
       })
+      console.log(results.toString());
       drawBox.draw(canvas);
     });
   })
@@ -53,7 +54,7 @@ async function start() {
 
 // function to parse all the names from the images
 function loadLabeledImages() {
-  const labels = ['jhalani']
+  const labels = ['jhalani', 'bittu']
 
   // return all the promises for returning all the images
   return Promise.all(
