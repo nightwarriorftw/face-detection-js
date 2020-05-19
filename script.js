@@ -53,22 +53,21 @@ async function start() {
 
 // function to parse all the names from the images
 function loadLabeledImages() {
-  const labels = ['jhalani', 'cute']
+  const labels = ['jhalani']
 
   // return all the promises for returning all the images
   return Promise.all(
     labels.map(async label => {
-      const description = [];
+      const descriptions = [];
       for (let i = 1; i <= 3; i++) {
-        const img = faceapi.fetchImage(
-          `https://github.com/nightwarriorftw/face-detection-js/tree/master/labeled_images/${label}/${i}.jpeg`
+        const img = await faceapi.fetchImage(
+          `https://raw.githubusercontent.com/nightwarriorftw/face-detection-js/master/labeled_images/${label}/${i}.jpeg`
           );
-        const detections = await faceapi.detectSingleFace(img)
-          .withFaceLandmarks().withFaceLandmarks();
-        description.push(detections.descriptor);
+        const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+        descriptions.push(detections.descriptor)
       }
 
-      return new faceapi.labeledFaceDescriptors(label, description);
+      return new faceapi.LabeledFaceDescriptors(label, descriptions);
     })
   )
 }
