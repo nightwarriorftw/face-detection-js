@@ -9,6 +9,7 @@ Promise.all([
 
 // Detecting the image and labeling
 async function start() {
+	console.log('1');
   // created container for box
   const container = document.createElement('div');
   container.style.position = 'relative';
@@ -19,12 +20,20 @@ async function start() {
   const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors,
     0.6);
 
+  let image;
+  let canvas;
   imageUpload.addEventListener('change', async () => {
-    const image = await faceapi.bufferToImage(imageUpload.files[0]);
+	console.log('2');
+    // delete the image uploaded
+    if(image) image.remove();
+    if(canvas) canvas.remove();
 
+    image = await faceapi.bufferToImage(imageUpload.files[0]);
+    console.log(image);
     // For drawing boxes on the image
     container.append(image);
-    const canvas = faceapi.createCanvasFromMedia(image);
+    canvas = faceapi.createCanvasFromMedia(image);
+    console.log(canvas);
     container.append(canvas);
 
     // changing dimesions of the canvas
@@ -54,7 +63,7 @@ async function start() {
 
 // function to parse all the names from the images
 function loadLabeledImages() {
-  const labels = ['jhalani', 'bittu']
+  const labels = ['Aditya', 'Bittu', 'Jhalani'];
 
   // return all the promises for returning all the images
   return Promise.all(
