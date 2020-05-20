@@ -71,7 +71,7 @@ function loadLabeledImages() {
       const descriptions = [];
       for (let i = 1; i <= 3; i++) {
         const img = await faceapi.fetchImage(
-          `https://raw.github.com/nightwarriorftw/face-detection-js/master/labeled_images/${label}/${i}.jpeg`
+          `https://raw.githubusercontent.com/nightwarriorftw/face-detection-js/master/labeled_images/${label}/${i}.jpeg`
           );
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         descriptions.push(detections.descriptor)
