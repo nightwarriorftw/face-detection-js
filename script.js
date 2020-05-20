@@ -63,7 +63,7 @@ async function start() {
 
 // function to parse all the names from the images
 function loadLabeledImages() {
-  const labels = ['Aditya', 'Bittu', 'Jhalani'];
+  const labels = ['Aditya', 'Bittu', 'Jhalani', 'TwilightBoy'];
 
   // return all the promises for returning all the images
   return Promise.all(
