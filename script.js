@@ -74,6 +74,7 @@ function loadLabeledImages() {
           `https://raw.githubusercontent.com/nightwarriorftw/face-detection-js/master/labeled_images/${label}/${i}.jpeg`
           );
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+        console.log(detections);
         descriptions.push(detections.descriptor)
       }
 
